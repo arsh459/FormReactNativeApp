@@ -1,9 +1,10 @@
 import { View, TouchableOpacity, Text } from "react-native"
-import { Switch } from "react-native-paper"
+// import { Switch } from "react-native-paper"
 import { PlanData } from ".."
 import ScreenContentWrapper from "../../../components/ContentWrapper/ScreenContentWrapper"
 import clsx from "clsx"
 import CommonIcon from "../../../components/icons/CommonIcon"
+import CustomSwitch from "../../../components/Switch/CustomSwitch"
 const SelectYourPlanContent = ({
   isSelected,
   setIsSelected,
@@ -61,7 +62,11 @@ const SelectYourPlanContent = ({
             >
               Monthly
             </Text>
-            <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+            <CustomSwitch
+              isSwitchOn={isSwitchOn}
+              onToggleSwitch={onToggleSwitch}
+            />
+            {/* <Switch value={isSwitchOn} onValueChange={onToggleSwitch} /> */}
             <Text
               className={clsx(
                 "ml-2",

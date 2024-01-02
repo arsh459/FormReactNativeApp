@@ -30,7 +30,7 @@ const SelectYourPlanContent = ({
                   isSelected.planName === item.title
                     ? "bg-[#e1dbdb66] border border-[#443CFF]"
                     : "border border-gray-400",
-                  " flex flex-row items-center p-3 rounded-xl mt-3"
+                  " flex flex-row items-center p-4  rounded-xl mt-3"
                 )}
               >
                 <View className="p-3 bg-[#F7808C] rounded-full">

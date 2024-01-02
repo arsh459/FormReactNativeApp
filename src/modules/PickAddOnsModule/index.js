@@ -1,6 +1,5 @@
-import { View, Button } from "react-native"
+import { View } from "react-native"
 import { useState } from "react"
-import CustomCheckbox from "./components/CheckBox"
 import { useNavigation } from "@react-navigation/native"
 import BackgroundView from "../../components/Background/BackgroundView"
 import ScreenHeader from "../../components/Header/ScreenHeader"
@@ -10,9 +9,13 @@ import { useDispatch, useSelector } from "react-redux"
 
 const PickAddOnsModule = () => {
   const navigation = useNavigation()
+
+  //Redux
   const planAddOns = useSelector((state) => {
     return state.common.planAddOns
   })
+
+  // local State
   const [checkedState, setCheckedState] = useState(planAddOns || {})
 
   const dispatch = useDispatch()

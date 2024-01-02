@@ -1,7 +1,5 @@
-import { View, Text, TouchableOpacity, Button } from "react-native"
+import { View } from "react-native"
 import * as React from "react"
-
-import { Switch } from "react-native-paper"
 import { useNavigation } from "@react-navigation/native"
 import BackgroundView from "../../components/Background/BackgroundView"
 import ScreenHeader from "../../components/Header/ScreenHeader"
@@ -20,20 +18,25 @@ export const PlanData = [
 
 const SelectYourPlanModule = () => {
   const navigation = useNavigation()
+
+  // Redux
   const yearlyPlan = useSelector((state) => {
     return state.common.yearlyPlan
   })
   const planData = useSelector((state) => {
     return state.common.planData
   })
-  const [isSwitchOn, setIsSwitchOn] = React.useState(yearlyPlan || false)
   const dispatch = useDispatch()
+
+  //Local State
+  const [isSwitchOn, setIsSwitchOn] = React.useState(yearlyPlan || false)
   const [isSelected, setIsSelected] = React.useState({
     planName: planData.planName || "",
     planCost: planData.planCost || "",
   })
   const [error, setError] = React.useState()
 
+  // Handle Submit
   const handlePress = () => {
     if (isSelected.planName.length < 1) {
       setError("Please select a plan")
@@ -43,6 +46,7 @@ const SelectYourPlanModule = () => {
       navigation.navigate("PickAddOnsScreen", {})
     }
   }
+
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn)
   return (
     <View className="flex-1 bg-transparent">

@@ -11,7 +11,7 @@ const FinishingUpModule = () => {
   const showAlert = () => {
     Alert.alert(
       "Plan Selected",
-      "You have a plan now.",
+      "You have a subscription now.",
       [
         {
           text: "Reset",

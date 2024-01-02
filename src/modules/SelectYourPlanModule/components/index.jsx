@@ -10,7 +10,6 @@ const SelectYourPlanContent = ({
   isSwitchOn,
   onToggleSwitch,
   error,
-  yearlyPlan,
 }) => {
   return (
     <ScreenContentWrapper
@@ -19,6 +18,7 @@ const SelectYourPlanContent = ({
     >
       <View className="">
         <View>
+          {/* Plans Available */}
           {PlanData.map((item) => {
             return (
               <TouchableOpacity
@@ -51,6 +51,7 @@ const SelectYourPlanContent = ({
             )
           })}
 
+          {/* Select monthly/ Yearly */}
           <View className="flex flex-row items-center justify-center bg-[#F8F9FE] rounded-xl py-2 mt-3">
             <Text
               className={clsx(

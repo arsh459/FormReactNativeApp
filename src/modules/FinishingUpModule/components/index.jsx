@@ -10,6 +10,9 @@ export const PlanAddOnsObject = {
 }
 
 const FinishingUpContent = () => {
+  const navigation = useNavigation()
+
+  // Redux
   const planAddOns = useSelector((state) => {
     return state.common.planAddOns
   })
@@ -19,11 +22,13 @@ const FinishingUpContent = () => {
   const planData = useSelector((state) => {
     return state.common.planData
   })
+
+  // Finding the total Price
   let total = planData.planCost
   Object.keys(planAddOns).forEach((item) => {
     total += planAddOns[item]
   })
-  const navigation = useNavigation()
+
   return (
     <ScreenContentWrapper
       title={"Finishing Up"}

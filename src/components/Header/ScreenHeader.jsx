@@ -3,14 +3,20 @@ import clsx from "clsx"
 import { CommonActions, useNavigation } from "@react-navigation/native"
 const ScreenHeader = ({ screenName }) => {
   const navigation = useNavigation()
+
+  const commonStyles =
+    "w-10 aspect-square rounded-full  flex items-center justify-center"
+  const isScreenStyles = "bg-[#BEE2FA]"
+  const isNotScreenStyles = "border border-white"
+
   return (
     <View className="flex flex-row items-center justify-around px-20 pt-8 ">
       <TouchableOpacity
         className={clsx(
-          `w-10 aspect-square rounded-full  flex items-center justify-center  `,
+          commonStyles,
           screenName === "PersonalInfoScreen"
-            ? "bg-[#BEE2FA]"
-            : "border border-white"
+            ? isScreenStyles
+            : isNotScreenStyles
         )}
         onPress={() => {
           navigation.dispatch((state) => {
@@ -60,10 +66,10 @@ const ScreenHeader = ({ screenName }) => {
           })
         }}
         className={clsx(
-          "w-10 aspect-square rounded-full flex items-center justify-center ",
+          commonStyles,
           screenName === "SelectYourPlanScreen"
-            ? "bg-[#BEE2FA]"
-            : "border border-white"
+            ? isScreenStyles
+            : isNotScreenStyles
         )}
       >
         <Text
@@ -96,15 +102,15 @@ const ScreenHeader = ({ screenName }) => {
           })
         }}
         className={clsx(
-          "w-10 aspect-square rounded-full flex items-center justify-center",
-          screenName === "PickAddOnsScreen"
-            ? "bg-[#BEE2FA]"
-            : "border border-white text-white"
+          commonStyles,
+          screenName === "PickAddOnsScreen" ? isScreenStyles : isNotScreenStyles
         )}
       >
         <Text
           className={clsx(
-            screenName === "PickAddOnsScreen" ? "" : "text-[#fff] "
+            screenName === "PickAddOnsScreen"
+              ? "text-[#092950]"
+              : "text-[#fff] "
           )}
         >
           3
@@ -113,15 +119,17 @@ const ScreenHeader = ({ screenName }) => {
       <TouchableOpacity
         disabled={true}
         className={clsx(
-          "w-10 aspect-square rounded-full flex items-center justify-center",
+          commonStyles,
           screenName === "FinishingUpScreen"
-            ? "bg-[#BEE2FA]"
-            : "border border-white text-white"
+            ? isScreenStyles
+            : isNotScreenStyles
         )}
       >
         <Text
           className={clsx(
-            screenName === "FinishingUpScreen" ? "" : "text-[#fff] "
+            screenName === "FinishingUpScreen"
+              ? "text-[#092950]"
+              : "text-[#fff] "
           )}
         >
           4

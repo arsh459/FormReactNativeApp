@@ -10,21 +10,25 @@ import BackgroundView from "../../components/Background/BackgroundView"
 import { useEffect } from "react"
 const PersonalInfoModule = () => {
   const navigation = useNavigation()
+
+  // Redux
   const personalInfo = useSelector((state) => {
     return state.common.personalInfo
   })
   const dispatch = useDispatch()
+
+  // Local State
   const [state, setState] = useState({
     userName: "",
     email: "",
     phoneNumber: "",
   })
   const [errors, setError] = useState({})
-
   useEffect(() => {
     setState(personalInfo)
   }, [personalInfo])
 
+  // Submit Process
   const handleSubmit = () => {
     const errors = validateState(state)
     if (errors) {

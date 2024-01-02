@@ -27,8 +27,7 @@ const PickAddOnsContent = ({ checkedState, setCheckedState }) => {
                     onlineService: 1,
                   }
                 } else {
-                  let obj = { ...prev }
-                  delete obj.onlineService
+                  let { onlineService, ...obj } = prev
                   return obj
                 }
               })
@@ -50,8 +49,7 @@ const PickAddOnsContent = ({ checkedState, setCheckedState }) => {
                     largerStorage: 2,
                   }
                 } else {
-                  let obj = { ...prev }
-                  delete obj.largerStorage
+                  let { largerStorage, ...obj } = prev
                   return obj
                 }
               })
